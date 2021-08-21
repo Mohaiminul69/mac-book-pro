@@ -109,7 +109,7 @@ function verifyPromoCode() {
   const beforePromoTotal = parseInt(
     document.getElementById("promo-total-price").innerText
   );
-  const afterPromoTotal = Math.floor(beforePromoTotal - beforePromoTotal / 5);
+  const afterPromoTotal = beforePromoTotal - beforePromoTotal / 5;
   if (userInputValue == promoCode) {
     document.getElementById("promo-total-price").innerText = afterPromoTotal;
     applyBtn.setAttribute("disabled", true);
