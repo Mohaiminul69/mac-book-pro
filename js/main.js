@@ -1,6 +1,7 @@
 /*
-<-------------------- Event Listeners Calling Functions Start -------------------->
-<-------------------- Event Listeners Calling Functions Start -------------------->
+<-------------------- Event Listeners Calling Functions -------------------->
+<-------------------- Event Listeners Calling Functions -------------------->
+<-------------------- Event Listeners Calling Functions -------------------->
 */
 
 document
@@ -33,17 +34,14 @@ document
 document
   .getElementById("code-apply-btn")
   .addEventListener("click", function () {
+    //<-------------------- Calling the Verifying Promo Code Function -------------------->
     verifyPromoCode();
   });
 
 /*
-<-------------------- Event Listeners Calling Functions End -------------------->
-<-------------------- Event Listeners Calling Functions End -------------------->
-*/
-
-/*
-<-------------------- Updating Each Table Row Price Start -------------------->
-<-------------------- Updating Each Table Row Price Start -------------------->
+<------------------------- Function Number #1 ------------------------->
+<-------------------- Updating Each Table Row Price -------------------->
+<-------------------- Updating Each Table Row Price -------------------->
 */
 
 function updatePrice(option, price) {
@@ -53,13 +51,9 @@ function updatePrice(option, price) {
 }
 
 /*
-<-------------------- Updating Each Table Row Price End -------------------->
-<-------------------- Updating Each Table Row Price End -------------------->
-*/
-
-/*
-<-------------------- Updating Total Table Price Start -------------------->
-<-------------------- Updating Total Table Price Start -------------------->
+<--------------------------- Function Number #2 --------------------------->
+<-------------------- Updating Total Price of the table -------------------->
+<-------------------- Updating Total Price of the table -------------------->
 */
 
 function updateTableTotal() {
@@ -68,23 +62,23 @@ function updateTableTotal() {
   const deliveryPrice = document.getElementById("delivery-price");
   const applyBtn = document.getElementById("code-apply-btn");
   applyBtn.removeAttribute("disabled");
+
+  //<-------------------- Calculating the Total price of the Table -------------------->
   const tableTotal =
     1299 +
     parseInt(memoryPrice.innerText) +
     parseInt(storagePrice.innerText) +
     parseInt(deliveryPrice.innerText);
+
+  //<-------------------- Updating the Total price of the Table -------------------->
   document.getElementById("table-total-price").innerText = tableTotal;
   promoTotal(tableTotal);
 }
 
 /*
-<-------------------- Updating Total Table Price End -------------------->
-<-------------------- Updating Total Table Price End -------------------->
-*/
-
-/*
-<-------------------- Updating the Total Price Start -------------------->
-<-------------------- Updating the Total Price Start -------------------->
+<----------------------- Function Number #3 ----------------------->
+<-------------------- Updating the Total Price -------------------->
+<-------------------- Updating the Total Price -------------------->
 */
 
 function promoTotal(tableTotal) {
@@ -92,32 +86,29 @@ function promoTotal(tableTotal) {
 }
 
 /*
-<-------------------- Updating the Total Price End -------------------->
-<-------------------- Updating the Total Price End -------------------->
-*/
-
-/*
-<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
-<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
+<------------------------------------ Function Number #4 ------------------------------------>
+<---------- Verifying the Promo Code & Updating Total Price after using Promo Code ---------->
+<---------- Verifying the Promo Code & Updating Total Price after using Promo Code ---------->
 */
 
 function verifyPromoCode() {
   const promoCode = "stevekaku";
-  const userInput = document.getElementById("promocode-input");
+  const userInputBox = document.getElementById("promocode-input");
+  const userGivenCode = document.getElementById("promocode-input").value;
   const applyBtn = document.getElementById("code-apply-btn");
-  const userInputValue = document.getElementById("promocode-input").value;
+
+  //<-------------------- Calculating the discount price after using promo code -------------------->
   const beforePromoTotal = parseInt(
     document.getElementById("promo-total-price").innerText
   );
   const afterPromoTotal = beforePromoTotal - beforePromoTotal / 5;
-  if (userInputValue == promoCode) {
+
+  //<----------- Verifying the Input provided by the User Start & Disabling the Apply Button ----------->
+  if (userGivenCode == promoCode) {
     document.getElementById("promo-total-price").innerText = afterPromoTotal;
     applyBtn.setAttribute("disabled", true);
   }
-  userInput.value = "";
-}
 
-/*
-<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
-<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
-*/
+  //<-------------------- Making the inputfield Empty -------------------->
+  userInputBox.value = "";
+}
