@@ -1,7 +1,6 @@
 /*
-<-------------------- Function Calling Event Listeners -------------------->
-<-------------------- Function Calling Event Listeners -------------------->
-<-------------------- Function Calling Event Listeners -------------------->
+<-------------------- Event Listeners Calling Functions Start -------------------->
+<-------------------- Event Listeners Calling Functions Start -------------------->
 */
 
 document
@@ -38,9 +37,13 @@ document
   });
 
 /*
-<-------------------- Function Calling Event Listeners -------------------->
-<-------------------- Function Calling Event Listeners -------------------->
-<-------------------- Function Calling Event Listeners -------------------->
+<-------------------- Event Listeners Calling Functions End -------------------->
+<-------------------- Event Listeners Calling Functions End -------------------->
+*/
+
+/*
+<-------------------- Updating Each Table Row Price Start -------------------->
+<-------------------- Updating Each Table Row Price Start -------------------->
 */
 
 function updatePrice(moreOption, price) {
@@ -49,10 +52,22 @@ function updatePrice(moreOption, price) {
   updatTableTotal();
 }
 
+/*
+<-------------------- Updating Each Table Row Price End -------------------->
+<-------------------- Updating Each Table Row Price End -------------------->
+*/
+
+/*
+<-------------------- Updating Total Table Price Start -------------------->
+<-------------------- Updating Total Table Price Start -------------------->
+*/
+
 function updatTableTotal() {
   const memoryPrice = document.getElementById("memory-price");
   const storagePrice = document.getElementById("storage-price");
   const deliveryPrice = document.getElementById("delivery-price");
+  const applyBtn = document.getElementById("code-apply-btn");
+  applyBtn.removeAttribute("disabled");
   const tableTotal =
     1299 +
     parseInt(memoryPrice.innerText) +
@@ -62,19 +77,47 @@ function updatTableTotal() {
   promoTotal(tableTotal);
 }
 
+/*
+<-------------------- Updating Total Table Price End -------------------->
+<-------------------- Updating Total Table Price End -------------------->
+*/
+
+/*
+<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
+<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
+*/
+
 function verifyPromoCode() {
   const promoCode = "stevekaku";
-  const userInput = document.getElementById("promocode-input").value;
+  const userInput = document.getElementById("promocode-input");
+  const applyBtn = document.getElementById("code-apply-btn");
+  const userInputValue = document.getElementById("promocode-input").value;
   const beforePromoTotal = parseInt(
     document.getElementById("promo-total-price").innerText
   );
   const afterPromoTotal = Math.floor(beforePromoTotal - beforePromoTotal / 5);
-  if (userInput == promoCode) {
+  if (userInputValue == promoCode) {
     document.getElementById("promo-total-price").innerText = afterPromoTotal;
+    applyBtn.setAttribute("disabled", true);
   }
   userInput.value = "";
 }
 
+/*
+<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
+<-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
+*/
+
+/*
+<-------------------- Updating the Total Price Start -------------------->
+<-------------------- Updating the Total Price Start -------------------->
+*/
+
 function promoTotal(tableTotal) {
   document.getElementById("promo-total-price").innerText = tableTotal;
 }
+
+/*
+<-------------------- Updating the Total Price End -------------------->
+<-------------------- Updating the Total Price End -------------------->
+*/
