@@ -83,6 +83,20 @@ function updatTableTotal() {
 */
 
 /*
+<-------------------- Updating the Total Price Start -------------------->
+<-------------------- Updating the Total Price Start -------------------->
+*/
+
+function promoTotal(tableTotal) {
+  document.getElementById("promo-total-price").innerText = tableTotal;
+}
+
+/*
+<-------------------- Updating the Total Price End -------------------->
+<-------------------- Updating the Total Price End -------------------->
+*/
+
+/*
 <-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
 <-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code Start -------------------->
 */
@@ -106,18 +120,4 @@ function verifyPromoCode() {
 /*
 <-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
 <-------------------- Verifying the Promo Code & Updating Total Price after using Promo Code End -------------------->
-*/
-
-/*
-<-------------------- Updating the Total Price Start -------------------->
-<-------------------- Updating the Total Price Start -------------------->
-*/
-
-function promoTotal(tableTotal) {
-  document.getElementById("promo-total-price").innerText = tableTotal;
-}
-
-/*
-<-------------------- Updating the Total Price End -------------------->
-<-------------------- Updating the Total Price End -------------------->
 */
