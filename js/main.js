@@ -46,9 +46,9 @@ document
 <-------------------- Updating Each Table Row Price Start -------------------->
 */
 
-function updatePrice(moreOption, price) {
-  const extraCost = document.getElementById(moreOption + "-price");
-  extraCost.innerHTML = price;
+function updatePrice(option, price) {
+  const optionCost = document.getElementById(option + "-price");
+  optionCost.innerHTML = price;
   updatTableTotal();
 }
 
