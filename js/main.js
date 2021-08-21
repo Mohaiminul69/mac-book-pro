@@ -49,7 +49,7 @@ document
 function updatePrice(option, price) {
   const optionCost = document.getElementById(option + "-price");
   optionCost.innerHTML = price;
-  updatTableTotal();
+  updateTableTotal();
 }
 
 /*
@@ -62,7 +62,7 @@ function updatePrice(option, price) {
 <-------------------- Updating Total Table Price Start -------------------->
 */
 
-function updatTableTotal() {
+function updateTableTotal() {
   const memoryPrice = document.getElementById("memory-price");
   const storagePrice = document.getElementById("storage-price");
   const deliveryPrice = document.getElementById("delivery-price");
